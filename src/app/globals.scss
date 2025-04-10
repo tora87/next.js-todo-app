@@ -1,0 +1,181 @@
+:root {
+  // 背景色
+  --c-main-bg: #EFE6FF;
+
+  // 文字色
+  --c-text-black: c;
+
+  // 影の幅
+  --shadow-distance: 2px;
+  --shadow-distance-minus: calc(var(--shadow-distance) * -1);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--c-main-bg);
+  color: var(--c-text-black);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: revert;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  max-height: 100vh;
+  margin: auto;
+  padding: 120px 0 0;
+}
+
+.contents-wrapper {
+  max-width: 1200px;
+  width: calc(100% - 100px);
+  margin: auto;
+}
+
+button:focus {
+  outline: revert;
+}
+
+// ここからは仮置き
+.add-todo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  gap: 10px;
+
+  .add-todo {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    padding: 10px 24px;
+    border-radius: 32px 0px 0px 32px;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    font-family: inherit;
+    background: #EFE6FF;
+    box-shadow: inset var(--shadow-distance) var(--shadow-distance) 10px #cbc4d9,
+                inset var(--shadow-distance-minus) var(--shadow-distance-minus) 10px #ffffff;
+    
+    &::placeholder{
+      color: #918b9c;
+    }
+
+    &:focus {
+      outline: revert;
+    }
+  }
+}
+
+.todo-items {
+  padding: 0 16px 16px;
+  overflow-y: scroll;
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 16px 16px 32px;
+    font-size: 20px;
+    color: #120030;
+    border-radius: 50px;
+    // background: linear-gradient(180deg, #fff6ff, #d7cfe6);
+    box-shadow: var(--shadow-distance) var(--shadow-distance) 10px #a59fb0,
+                var(--shadow-distance-minus) var(--shadow-distance-minus) 10px #ffffff,
+                inset -1px -1px 4px #cbc4d9,
+                inset 1px 1px 4px #ffffff;
+    animation: fadeIn 0.3s ease-out;
+    &.delete {
+      animation: fadeOut 0.3s ease-out forwards; 
+    }
+  }
+  :not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+}
+
+.add-btn {
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 16px;
+  outline: none;
+  border: none;
+  border-radius: 0px 32px 32px 0px;
+  background: var(--c-main-bg);
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: inherit;
+  // background: linear-gradient(180deg, #fff6ff, #EFE6FF);
+  box-shadow: var(--shadow-distance) var(--shadow-distance) 10px #a59fb0,
+              var(--shadow-distance-minus) var(--shadow-distance-minus) 10px #ffffff,
+              inset -1px -1px 4px #cbc4d9,
+              inset 1px 1px 4px #ffffff;
+
+  & > span {
+    color: #120030;
+  }
+}
+
+.delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #E8D8D8, #e6a7a7);
+  box-shadow:  3px 3px 10px #b08080,
+              -3px -3px 10px #fff2f2;
+}
+
+
+
+
+/* アニメーションの定義 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
