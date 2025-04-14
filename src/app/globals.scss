@@ -1,14 +1,27 @@
+@use 'sass:color';
 :root {
   // 背景色
   --c-main-bg: #efe6ff;
 
   // 文字色
-  --c-text-black: c;
+  --c-text-black: #120030;
+
+  // ボタン色
+  --c-delete-main: #ff7b7b;
 
   // 影の幅
   --shadow-distance: 2px;
   --shadow-distance-minus: calc(var(--shadow-distance) * -1);
 }
+
+// $delete-base: #ff7b7b;
+$delete-base: #a485db;
+
+$bg1: color.scale($delete-base, $lightness: 80%, $saturation: -50%);
+$bg2: color.scale($delete-base, $lightness: 10%, $saturation: -30%);
+
+$shadow-dark: color.scale($delete-base, $lightness: -10%, $saturation: -10%);
+$shadow-light: color.scale($delete-base, $lightness: 50%, $saturation: -70%);
 
 html,
 body {
@@ -56,7 +69,8 @@ button:focus {
   margin: auto;
 }
 
-.delete-btn {
+.delete-btn,
+.edit-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,12 +78,22 @@ button:focus {
   height: 36px;
   cursor: pointer;
   outline: none;
-  background: linear-gradient(145deg, #e8d8d8, #e6a7a7);
   border: none;
   border-radius: 50%;
+}
+
+.delete-btn {
+  background: linear-gradient(145deg, #e8d8d8, #e6a7a7);
   box-shadow:
     3px 3px 10px #b08080,
     -3px -3px 10px #fff2f2;
+}
+
+.edit-btn {
+  background: linear-gradient(145deg, $bg1, $bg2);
+  box-shadow:
+    3px 3px 10px $shadow-dark,
+    -3px -3px 10px $shadow-light;
 }
 
 /* アニメーションの定義 */

@@ -1,8 +1,4 @@
 .todo-items {
   padding: 0 16px 16px;
   overflow-y: scroll;
-
-  :not(:last-of-type) {
-    margin-bottom: 20px;
-  }
 }
