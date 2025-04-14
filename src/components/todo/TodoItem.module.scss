@@ -1,0 +1,38 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 16px 32px;
+  font-size: 20px;
+  color: #120030;
+  border-radius: 50px;
+  // background: linear-gradient(180deg, #fff6ff, #d7cfe6);
+  box-shadow:
+    var(--shadow-distance) var(--shadow-distance) 10px #a59fb0,
+    var(--shadow-distance-minus) var(--shadow-distance-minus) 10px #ffffff,
+    inset -1px -1px 4px #cbc4d9,
+    inset 1px 1px 4px #ffffff;
+  animation: fadeIn 0.3s ease-out;
+  // TODO アニメーションが動かない
+  &.delete {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
