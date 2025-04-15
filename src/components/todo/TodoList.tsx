@@ -5,9 +5,7 @@ import { prisma } from '@/app/lib/prisma';
 
 export default async function TodoList() {
   const todos: Todo[] = await prisma.todo.findMany({
-    orderBy: {
-      id: 'desc',
-    },
+    orderBy: [{ is_done: 'asc' }, { id: 'desc' }],
   });
 
   return (

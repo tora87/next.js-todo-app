@@ -5,35 +5,22 @@ import { prisma } from './prisma';
 import { revalidatePath } from 'next/cache';
 
 export const addTodoAction = async (title: string) => {
-  // const title = formData.get('title') as string;
-  // const priority = formData.get('priority');
-
   await prisma.todo.create({ data: { title } });
 
   revalidatePath('/');
 };
 
-type Test = {
+type UpdateTodoPayload = {
   id: number;
-  name: string;
-  ishoge: boolean;
-};
+} & Partial<Omit<Todo, 'id' | 'updated_at'>>;
 
-export const updateTodoAction = async (
-  id: number,
-  title: string,
-  priority: number = 1,
-  is_done = false
-) => {
+export const updateTodoAction = async (payload: UpdateTodoPayload) => {
+  const { id, ...data } = payload;
   await prisma.todo.update({
     where: {
       id: Number(id),
     },
-    data: {
-      title,
-      priority,
-      is_done,
-    },
+    data,
   });
 
   revalidatePath('/');

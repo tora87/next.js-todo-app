@@ -14,7 +14,7 @@ export default function TodoItem({ todo }: Props) {
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editedTitle, setEditedTitle] = useState<string>(todo.title);
-
+  const [isDone, setIsDone] = useState<boolean>(todo.is_done);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleDelete = async (id: number) => {
@@ -30,10 +30,9 @@ export default function TodoItem({ todo }: Props) {
 
   const handleUpdate = async (id: number) => {
     try {
-      // 編集中かどうか
       if (isEditing) {
         if (editedTitle.trim() !== '') {
-          await updateTodoAction(id, editedTitle, undefined, false);
+          await updateTodoAction({ id: todo.id, title: editedTitle });
           setIsEditing(false);
         } else {
           cancelEdit();
@@ -42,6 +41,11 @@ export default function TodoItem({ todo }: Props) {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleUpdateIsDone = async () => {
+    setIsDone((prev) => !prev);
+    await updateTodoAction({ id: todo.id, is_done: !isDone });
   };
 
   const cancelEdit = () => {
@@ -71,20 +75,31 @@ export default function TodoItem({ todo }: Props) {
   };
 
   return (
-    <li className={`${styles['todo-item']} ${deleteClass()}`}>
+    <li
+      className={`${styles['todo-item']} ${deleteClass()} ${isDone && styles['checked']}`}
+    >
+      <div className="is-done-wrapper">
+        <button
+          type="button"
+          className={`${styles['is-done-box']} ${isDone && styles['checked']}`}
+          onClick={handleUpdateIsDone}
+        >
+          <FaCheck color={`${isDone ? '#7134eb' : '#afa7bf'}`} size={'20px'} />
+        </button>
+      </div>
       {isEditing ? (
         <input
           ref={inputRef}
           type="text"
           name="title"
-          className={styles['todo-title']}
+          className={`${styles['todo-title']} ${styles['input']}`}
           placeholder={todo.title}
           value={editedTitle}
           onChange={(e) => setEditedTitle(e.target.value)}
           onKeyDown={handleKeyDown}
         />
       ) : (
-        <span>{todo.title}</span>
+        <span className={styles['todo-title']}>{todo.title}</span>
       )}
       <div className={styles['button-group']}>
         <button
