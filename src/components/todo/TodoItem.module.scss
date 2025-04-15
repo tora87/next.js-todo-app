@@ -32,7 +32,7 @@ $delete-light: color.scale($delete-base, $lightness: 80%, $saturation: -5%);
     width: 36px;
     height: 36px;
     cursor: pointer;
-    outline: none;
+    outline: invert;
     background: #efe6ff;
     border: none;
     border-radius: 8px;
@@ -70,6 +70,7 @@ $delete-light: color.scale($delete-base, $lightness: 80%, $saturation: -5%);
 
   &.checked {
     .todo-title {
+      color: #afa7bf;
       text-decoration: line-through;
     }
   }
