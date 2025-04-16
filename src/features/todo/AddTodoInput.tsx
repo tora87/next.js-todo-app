@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { addTodoAction } from '@/app/lib/actions';
 import { FaPlus } from 'react-icons/fa6';
 import styles from './AddTodoInput.module.scss';
+import Tooltip from '@/components/common/Tooltip';
 
 export default function AddTodoInput() {
   const [inputTitle, setInputTitle] = useState<string>('');
@@ -37,7 +38,7 @@ export default function AddTodoInput() {
         onKeyDown={handleKeyDown}
       />
       <button type="button" className={styles['add-btn']} onClick={handleAdd}>
-        <FaPlus color="#120030" size={'20px'} />
+        <FaPlus color="#120030" size={'24px'} aria-hidden />
         <span>Add</span>
       </button>
     </div>

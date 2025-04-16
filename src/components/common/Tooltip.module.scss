@@ -1,0 +1,51 @@
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block; /* 子要素（children）をインライン要素として配置 */
+}
+
+.tooltip {
+  position: absolute;
+  visibility: hidden;
+  padding: 2px 4px;
+  font-size: 12px;
+  color: white;
+  white-space: nowrap;
+  pointer-events: none; /* ツールチップ自体にカーソルが触れないようにする */
+  background-color: #41275a;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  &.top,
+  &.bottom {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.right,
+  &.left {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.top {
+    bottom: var(--tooltip-distance);
+  }
+
+  &.bottom {
+    top: var(--tooltip-distance);
+  }
+
+  &.right {
+    left: var(--tooltip-distance);
+  }
+
+  &.left {
+    right: var(--tooltip-distance);
+  }
+}
+
+.tooltip-wrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

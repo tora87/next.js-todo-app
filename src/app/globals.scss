@@ -12,6 +12,8 @@
   // 影の幅
   --shadow-distance: 2px;
   --shadow-distance-minus: calc(var(--shadow-distance) * -1);
+
+  --tooltip-distance: 120%;
 }
 
 // $delete-base: #ff7b7b;
