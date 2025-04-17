@@ -2,7 +2,7 @@ import styles from './page.module.scss';
 import AddTodoInput from '@/features/todo/AddTodoInput';
 import TodoList from '@/components/todo/TodoList';
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <div className="container">

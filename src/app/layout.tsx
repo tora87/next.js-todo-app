@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { M_PLUS_Rounded_1c } from 'next/font/google';
+import Header from '@/components/common/Header';
 import './globals.scss';
 
 const font_MPR = M_PLUS_Rounded_1c({
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${font_MPR.className}`}>
-        <div className="contents-wrapper">{children}</div>
+        <Header />
+        <main>
+          <div className="contents-wrapper">{children}</div>
+        </main>
       </body>
     </html>
   );
