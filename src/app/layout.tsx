@@ -4,7 +4,7 @@ import Header from '@/components/common/Header';
 import './globals.scss';
 
 const font_MPR = M_PLUS_Rounded_1c({
-  weight: ['400', '700'],
+  weight: ['400', '700', '900'],
   subsets: ['latin'],
 });
 

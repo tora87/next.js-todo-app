@@ -1,0 +1,87 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: max-content;
+  max-width: 500px;
+  padding: 50px;
+  margin: 300px auto 0;
+  background: #fbf7ff;
+  border-radius: 36px;
+  box-shadow:
+    8px 8px 16px #ada0c1,
+    inset -2px -2px 4px #cfc2e8,
+    inset 2px 2px 5px #fff;
+
+  &-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .app-icon {
+    &.bg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: #a492c6;
+      border-radius: 12px;
+    }
+
+    &.front {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: #efe6ff;
+      border-radius: 8px;
+      box-shadow:
+        1px 1px 2px #6f6b77,
+        inset 1px 1px 2px #fff,
+        inset -1px -1px 2px #cfc2e8;
+    }
+
+    svg {
+      filter: drop-shadow(2px 1px 1px #645c74);
+    }
+  }
+
+  .app-title {
+    font-weight: 900;
+    color: var(--c-text-black);
+  }
+
+  .welcome-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #636065;
+  }
+
+  .sign-in-btn {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 16px;
+    font-size: 20px;
+    color: var(--c-text-black);
+    outline: invert;
+    background: #fbf7ff;
+    border: none;
+    border-radius: 12px;
+    box-shadow:
+      2px 2px 6px #ccc5da,
+      inset -2px -2px 2px #cfc2e8,
+      inset 3px 3px 2px #fff;
+
+    &:active {
+      box-shadow:
+        inset 2px 2px 6px #ccc5da,
+        -2px -2px 2px #cfc2e8,
+        3px 3px 2px #fff;
+    }
+  }
+}
