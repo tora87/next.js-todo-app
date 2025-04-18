@@ -9,8 +9,9 @@ const font_MPR = M_PLUS_Rounded_1c({
 });
 
 export const metadata: Metadata = {
-  title: 'Neumor TODO',
-  description: 'This is Neumor-TODO',
+  title: 'Neuma TODO',
+  description:
+    'This is a TODO web application designed with a neumorphic style.',
 };
 
 export default function RootLayout({

@@ -13,15 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  googleAccount String
-}
-
 model Todo {
   id Int @id @default(autoincrement())
   title String
   is_done Boolean @default(false)
   priority Int @default(1)
   updated_at DateTime @updatedAt
+  user_id String  @db.Uuid
 }

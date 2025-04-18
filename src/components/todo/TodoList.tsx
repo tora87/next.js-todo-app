@@ -1,12 +1,22 @@
 import styles from './TodoList.module.scss';
 import { Todo } from '@prisma/client';
 import TodoItem from './TodoItem';
-import { prisma } from '@/app/lib/prisma';
+import { getTodosAction } from '@/app/lib/actions/todo';
 
 export default async function TodoList() {
-  const todos: Todo[] = await prisma.todo.findMany({
-    orderBy: [{ is_done: 'asc' }, { id: 'desc' }],
-  });
+  const todos: Todo[] = await getTodosAction();
+
+  if (!todos.length) {
+    return (
+      <div className={styles['no-item-wrapper']}>
+        <div className={styles['no-item-message']}>
+          Todoはまだありません...
+          <br />
+          追加してみましょう！
+        </div>
+      </div>
+    );
+  }
 
   return (
     <ul className={styles['todo-items']}>

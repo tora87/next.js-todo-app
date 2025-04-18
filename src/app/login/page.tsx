@@ -1,5 +1,5 @@
 'use client';
-import { loginWithGoogle } from '../lib/actions';
+import { signInWithGoogle } from '@/app/lib/actions/auth';
 import { FaCheck, FaGoogle } from 'react-icons/fa';
 import styles from './page.module.scss';
 
@@ -22,7 +22,7 @@ export default function LoginPage() {
         </div>
         <button
           type="button"
-          onClick={loginWithGoogle}
+          onClick={signInWithGoogle}
           className={styles['sign-in-btn']}
         >
           <FaGoogle size={24} color="#7134eb" aria-hidden />

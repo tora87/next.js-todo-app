@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Todo } from '@prisma/client';
 import { FaTrash, FaPen, FaCheck, FaBan } from 'react-icons/fa6';
 import styles from './TodoItem.module.scss';
-import { deleteTodoAction, updateTodoAction } from '@/app/lib/actions';
+import { deleteTodoAction, updateTodoAction } from '@/app/lib/actions/todo';
 import Tooltip from '@/components/common/Tooltip';
 
 type Props = {

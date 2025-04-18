@@ -3,7 +3,7 @@
 import { createClient } from '@/app/lib/supabase/client';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { signOut } from '@/app/lib/actions';
+import { signOut } from '@/app/lib/actions/auth';
 import Image from 'next/image';
 import { UserMetadata, Session } from '@supabase/supabase-js';
 import styles from './Header.module.scss';

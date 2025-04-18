@@ -1,10 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { addTodoAction } from '@/app/lib/actions';
+import { addTodoAction } from '@/app/lib/actions/todo';
 import { FaPlus } from 'react-icons/fa6';
 import styles from './AddTodoInput.module.scss';
-import Tooltip from '@/components/common/Tooltip';
 
 export default function AddTodoInput() {
   const [inputTitle, setInputTitle] = useState<string>('');
