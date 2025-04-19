@@ -88,7 +88,7 @@ export default function TodoItem({ todo }: Props) {
             onClick={handleUpdateIsDone}
           >
             <FaCheck
-              color={`${isDone ? '#7134eb' : '#afa7bf'}`}
+              color={`${isDone ? '#afa7bf' : '#7134eb'}`}
               size={'20px'}
               aria-hidden
             />

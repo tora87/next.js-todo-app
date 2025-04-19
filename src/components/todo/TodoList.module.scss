@@ -1,5 +1,5 @@
 .todo-items {
-  padding: 0 16px 16px;
+  padding: 16px 16px;
   overflow-y: scroll;
 }
 
@@ -22,7 +22,7 @@
     box-shadow:
       inset 2px 2px 4px #fff,
       inset -2px -2px 4px #cbc4d9;
-    animation: popup 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
     &::before {
       position: absolute;

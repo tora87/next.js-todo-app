@@ -13,10 +13,9 @@ $delete-light: color.scale($delete-base, $lightness: 80%, $saturation: -5%);
   color: #120030;
   border-radius: 50px;
   box-shadow:
-    var(--shadow-distance) var(--shadow-distance) 10px #a59fb0,
-    var(--shadow-distance-minus) var(--shadow-distance-minus) 10px #ffffff,
-    inset -1px -1px 4px #cbc4d9,
-    inset 1px 1px 4px #ffffff;
+    var(--sd-offset-m) var(--sd-offset-m) var(--bl-offset-m) #a59fb0,
+    inset -3px -3px 6px #cbc4d9,
+    inset 2px 2px 4px #ffffff;
   animation: fadeIn 0.3s ease-out;
   &.delete {
     animation: fadeOut 0.3s ease-out forwards;
@@ -37,13 +36,18 @@ $delete-light: color.scale($delete-base, $lightness: 80%, $saturation: -5%);
     border: none;
     border-radius: 8px;
     box-shadow:
-      2px 2px 2px #cbc4d9,
-      -2px -2px 2px #ffffff;
+      2px 2px 4px #a59fb0,
+      -2px -2px 4px #ffffff,
+      inset 2px 2px 4px transparent,
+      inset -2px -2px 4px transparent;
+    transition: box-shadow 0.2s ease-out;
 
     &.checked {
       box-shadow:
-        inset 2px 2px 2px #cbc4d9,
-        inset -2px -2px 2px #ffffff;
+        2px 2px 4px transparent,
+        -2px -2px 4px transparent,
+        inset 2px 2px 4px #a59fb0,
+        inset -2px -2px 4px #ffffff;
     }
   }
 

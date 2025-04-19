@@ -13,6 +13,16 @@
   --shadow-distance: 2px;
   --shadow-distance-minus: calc(var(--shadow-distance) * -1);
 
+  // 影の幅:小(shadow-offset-small)
+  --sd-offset-s: 2px;
+  --sd-offset-s-minus: calc(var(--sd-offset-s) * -1);
+  --bl-offset-s: 4px;
+
+  // 影の幅:中(shadow-offset-medium)
+  --sd-offset-m: 3px;
+  --sd-offset-m-minus: calc(var(--sd-offset-s) * -1);
+  --bl-offset-m: 6px;
+
   --tooltip-distance: 120%;
 }
 

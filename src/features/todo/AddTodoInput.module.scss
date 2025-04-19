@@ -16,8 +16,8 @@
     border: none;
     border-radius: 32px 0px 0px 32px;
     box-shadow:
-      inset var(--shadow-distance) var(--shadow-distance) 10px #cbc4d9,
-      inset var(--shadow-distance-minus) var(--shadow-distance-minus) 10px
+      inset 3px 3px 4px #bbb5c8,
+      inset var(--sd-offset-s-minus) var(--sd-offset-s-minus) var(--bl-offset-s)
         #ffffff;
 
     &::placeholder {
@@ -44,12 +44,11 @@
   background: var(--c-main-bg);
   border: none;
   border-radius: 0px 32px 32px 0px;
-  // background: linear-gradient(180deg, #fff6ff, #EFE6FF);
   box-shadow:
-    var(--shadow-distance) var(--shadow-distance) 10px #a59fb0,
-    var(--shadow-distance-minus) var(--shadow-distance-minus) 10px #ffffff,
-    inset -1px -1px 4px #cbc4d9,
-    inset 1px 1px 4px #ffffff;
+    var(--sd-offset-s) var(--sd-offset-s) var(--bl-offset-s) #a59fb0,
+    inset var(--sd-offset-s-minus) var(--sd-offset-s-minus) var(--bl-offset-s)
+      #cbc4d9,
+    inset var(--sd-offset-s) var(--sd-offset-s) var(--bl-offset-s) #ffffff;
 
   & > span {
     color: #120030;
