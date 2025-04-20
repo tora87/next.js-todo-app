@@ -5,7 +5,7 @@ import styles from './page.module.scss';
 
 export default function LoginPage() {
   return (
-    <>
+    <section className={styles['login-section']}>
       <div className={styles['login-container']}>
         <div className={styles['login-container-header']}>
           <div className={`${styles['app-icon']} ${styles['bg']}`}>
@@ -29,6 +29,6 @@ export default function LoginPage() {
           <span>Sign in with Google</span>
         </button>
       </div>
-    </>
+    </section>
   );
 }
