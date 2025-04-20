@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   title: 'Neuma TODO',
   description:
     'This is a TODO web application designed with a neumorphic style.',
+  openGraph: {
+    type: 'website',
+    title: 'Neuma TODO',
+    siteName: 'Neuma TODO',
+    url: 'https://neuma-todo-stg.vercel.app',
+    description:
+      'This is a TODO web application designed with a neumorphic style.',
+    images: {
+      url: '/ogp/neuma_todo_thumbnail.png',
+      type: 'image/png',
+      width: 1200,
+      height: 700,
+    },
+  },
 };
 
 export default function RootLayout({
