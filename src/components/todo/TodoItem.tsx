@@ -89,7 +89,7 @@ export default function TodoItem({ todo }: Props) {
           >
             <FaCheck
               color={`${isDone ? '#afa7bf' : '#7134eb'}`}
-              size={'20px'}
+              size={'60%'}
               aria-hidden
             />
           </button>
@@ -115,26 +115,26 @@ export default function TodoItem({ todo }: Props) {
             onClick={
               isEditing ? () => handleUpdate(todo.id) : () => setIsEditing(true)
             }
-            className="edit-btn"
+            className={styles['edit-btn']}
             type="button"
           >
             {isEditing ? (
-              <FaCheck color="#a485db" size={'20px'} aria-hidden />
+              <FaCheck color="#a485db" size={'60%'} aria-hidden />
             ) : (
-              <FaPen color="#a485db" size={'20px'} aria-hidden />
+              <FaPen color="#a485db" size={'60%'} aria-hidden />
             )}
           </button>
         </Tooltip>
         <Tooltip text={isEditing ? '編集中止' : '削除'} position="bottom">
           <button
             onClick={isEditing ? cancelEdit : () => handleDelete(todo.id)}
-            className="delete-btn"
+            className={styles['delete-btn']}
             type="button"
           >
             {isEditing ? (
-              <FaBan color="#ff7b7b" size={'20px'} aria-hidden />
+              <FaBan color="#ff7b7b" size={'60%'} aria-hidden />
             ) : (
-              <FaTrash color="#ff7b7b" size={'20px'} aria-hidden />
+              <FaTrash color="#ff7b7b" size={'60%'} aria-hidden />
             )}
           </button>
         </Tooltip>

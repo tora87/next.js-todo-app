@@ -1,3 +1,5 @@
+@use '../../styles/mixins.scss' as *;
+
 .header-container {
   position: absolute;
   top: 0;
@@ -9,8 +11,19 @@
   width: 100%;
   padding: 20px 15px;
 
-  .avatar {
+  .avatar-wrapper {
+    position: relative;
+    width: 36px;
+    aspect-ratio: 1/1;
     border-radius: 50%;
+
+    @include breakPoint(sp) {
+      width: 32px;
+    }
+
+    .avatar {
+      border-radius: 50%;
+    }
   }
 
   .sign-out-btn {
@@ -21,7 +34,6 @@
     color: var(--c-text-black);
     outline: invert;
     background: var(--c-main-bg);
-    background: #efe6ff;
     border: none;
     border-radius: 4px;
     box-shadow:
@@ -29,7 +41,7 @@
       -2px -2px 2px #ffffff;
 
     &:active {
-      color: #afa7bf;
+      color: var(--c-disabled);
       box-shadow:
         inset 2px 2px 2px #cbc4d9,
         inset -2px -2px 2px #ffffff;

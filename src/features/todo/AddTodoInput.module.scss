@@ -1,3 +1,5 @@
+@use '../../styles/mixins.scss' as *;
+
 .add-todo-wrapper {
   display: flex;
   gap: 10px;
@@ -10,7 +12,7 @@
     width: 100%;
     padding: 10px 24px;
     font-family: inherit;
-    font-size: 24px;
+    font-size: 1.5rem;
     outline: none;
     background: #efe6ff;
     border: none;
@@ -26,6 +28,11 @@
 
     &:focus {
       outline: revert;
+    }
+
+    @include breakPoint(sp) {
+      padding: 10px 16px;
+      font-size: 1.2rem;
     }
   }
 }
@@ -52,5 +59,26 @@
 
   & > span {
     color: #120030;
+  }
+
+  &:active {
+    box-shadow:
+      inset var(--sd-offset-s) var(--sd-offset-s) var(--bl-offset-s) #a59fb0,
+      var(--sd-offset-s-minus) var(--sd-offset-s-minus) var(--bl-offset-s)
+        #cbc4d9,
+      var(--sd-offset-s) var(--sd-offset-s) var(--bl-offset-s) #ffffff;
+
+    svg {
+      fill: var(--c-disabled);
+    }
+
+    & > span {
+      color: var(--c-disabled);
+    }
+  }
+
+  @include breakPoint(sp) {
+    min-width: 70px;
+    padding: 8px 12px;
   }
 }

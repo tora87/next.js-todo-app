@@ -32,19 +32,20 @@ export default function Header() {
   return (
     <header>
       <div className={styles['header-container']}>
-        <Image
-          className={styles['avatar']}
-          src={userMetadata.avatar_url}
-          width={36}
-          height={36}
-          alt="アバター画像"
-        />
+        <div className={styles['avatar-wrapper']}>
+          <Image
+            className={styles['avatar']}
+            src={userMetadata.avatar_url}
+            fill
+            alt="アバター画像"
+          />
+        </div>
         <button
           type="button"
           className={styles['sign-out-btn']}
           onClick={signOut}
         >
-          Sign Out
+          Sign out
         </button>
       </div>
     </header>

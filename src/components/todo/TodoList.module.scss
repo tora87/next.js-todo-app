@@ -1,5 +1,7 @@
+@use '../../styles/mixins.scss' as *;
+
 .todo-items {
-  padding: 16px 16px;
+  padding: 16px;
   overflow-y: scroll;
 }
 
@@ -48,3 +50,13 @@
     transform: translateY(0) scale(1);
   }
 }
+
+@include breakPoint(tablet);
+
+@include breakPoint(sp) {
+  .todo-items {
+    padding: 16px 12px;
+  }
+}
+
+@include breakPoint(small-sp);

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { M_PLUS_Rounded_1c } from 'next/font/google';
 import Header from '@/components/common/Header';
-import './globals.scss';
+import '../styles/globals.scss';
 
 const font_MPR = M_PLUS_Rounded_1c({
   weight: ['400', '700', '900'],

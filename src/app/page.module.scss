@@ -1,7 +1,15 @@
+@use '../styles/mixins.scss' as *;
+
 .title {
   margin-bottom: 2rem;
   font-size: 2.5rem;
   font-weight: 900;
   color: #120030;
   text-align: center;
+}
+
+@include breakPoint(sp) {
+  .title {
+    margin-bottom: 1.6rem;
+  }
 }

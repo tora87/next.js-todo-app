@@ -1,4 +1,5 @@
-@use 'sass:color';
+@use './mixins' as *;
+
 :root {
   // 背景色
   --c-main-bg: #efe6ff;
@@ -8,6 +9,7 @@
 
   // ボタン色
   --c-delete-main: #ff7b7b;
+  --c-disabled: #afa7bf;
 
   // 影の幅
   --shadow-distance: 2px;
@@ -26,22 +28,16 @@
   --tooltip-distance: 120%;
 }
 
-// $delete-base: #ff7b7b;
-$delete-base: #a485db;
-
-$bg1: color.scale($delete-base, $lightness: 80%, $saturation: -50%);
-$bg2: color.scale($delete-base, $lightness: 10%, $saturation: -30%);
-
-$shadow-dark: color.scale($delete-base, $lightness: -10%, $saturation: -10%);
-$shadow-light: color.scale($delete-base, $lightness: 50%, $saturation: -70%);
-
 html,
 body {
-  max-width: 100vw;
-  height: 100vh;
+  width: 100%;
   overflow-x: hidden;
   color: var(--c-text-black);
   background: var(--c-main-bg);
+}
+
+html {
+  font-size: 16px;
 }
 
 * {
@@ -71,7 +67,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  max-height: 100vh;
+  max-height: 100dvh;
   padding: 120px 0 0;
   margin: auto;
 }
@@ -80,33 +76,6 @@ button:focus {
   width: calc(100% - 100px);
   max-width: 1200px;
   margin: auto;
-}
-
-.delete-btn,
-.edit-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  border-radius: 50%;
-}
-
-.delete-btn {
-  background: linear-gradient(145deg, #e8d8d8, #e6a7a7);
-  box-shadow:
-    3px 3px 10px #b08080,
-    -3px -3px 10px #fff2f2;
-}
-
-.edit-btn {
-  background: linear-gradient(145deg, $bg1, $bg2);
-  box-shadow:
-    3px 3px 10px $shadow-dark,
-    -3px -3px 10px $shadow-light;
 }
 
 /* アニメーションの定義 */
@@ -125,5 +94,35 @@ button:focus {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@include breakPoint(tablet) {
+  html {
+    font-size: 15px;
+  }
+
+  .contents-wrapper {
+    width: calc(100% - 60px);
+  }
+}
+
+@include breakPoint(sp) {
+  html {
+    font-size: 14px;
+  }
+
+  .contents-wrapper {
+    width: calc(100% - 20px);
+  }
+
+  .container {
+    padding: 80px 0 0;
+  }
+}
+
+@include breakPoint(small-sp) {
+  html {
+    font-size: 12px;
   }
 }
