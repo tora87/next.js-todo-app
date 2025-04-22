@@ -27,6 +27,7 @@
   }
 
   .sign-out-btn {
+    position: relative;
     display: inline-block;
     padding: 8px 12px;
     font-size: 12px;
@@ -45,6 +46,17 @@
       box-shadow:
         inset 2px 2px 2px #cbc4d9,
         inset -2px -2px 2px #ffffff;
+    }
+
+    &:disabled > span:not(.loader) {
+      opacity: 0.2;
+    }
+
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }

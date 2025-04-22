@@ -28,8 +28,9 @@
 
   &-header {
     display: flex;
-    gap: 16px;
+    gap: 10px;
     align-items: center;
+    justify-content: center;
   }
 
   .app-icon {
@@ -75,11 +76,8 @@
   }
 
   .sign-in-btn {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 16px;
+    position: relative;
+    padding: 16px 24px 16px 16px;
     font-family: inherit;
     font-size: 1.3rem;
     font-weight: 700;
@@ -93,11 +91,32 @@
       inset -2px -2px 2px #cfc2e8,
       inset 3px 3px 2px #fff;
 
+    .inner-wrapper {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     &:active {
       box-shadow:
         inset 2px 2px 6px #ccc5da,
         -2px -2px 2px #cfc2e8,
         3px 3px 2px #fff;
+    }
+
+    &:disabled {
+      .inner-wrapper {
+        opacity: 0.2;
+      }
     }
   }
 }
