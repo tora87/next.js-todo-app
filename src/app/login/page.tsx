@@ -2,8 +2,14 @@
 import { signInWithGoogle } from '@/app/lib/actions/auth';
 import { FaCheck, FaGoogle } from 'react-icons/fa';
 import styles from './page.module.scss';
+import { PulseLoader } from 'react-spinners';
+import { useTransition } from 'react';
 
 export default function LoginPage() {
+  const [isPending, startTransition] = useTransition();
+  const handleSignIn = () => {
+    startTransition(() => signInWithGoogle());
+  };
   return (
     <section className={styles['login-section']}>
       <div className={styles['login-container']}>
@@ -22,11 +28,22 @@ export default function LoginPage() {
         </div>
         <button
           type="button"
-          onClick={signInWithGoogle}
+          onClick={handleSignIn}
           className={styles['sign-in-btn']}
+          disabled={isPending}
         >
-          <FaGoogle size={24} color="#7134eb" aria-hidden />
-          <span>Sign in with Google</span>
+          <div className={styles['inner-wrapper']}>
+            <FaGoogle size={24} color="#7134eb" aria-hidden />
+            <span>Sign in with Google</span>
+          </div>
+          {isPending && (
+            <PulseLoader
+              className={styles['loader']}
+              loading={true}
+              size={10}
+              color={`#7134eb`}
+            />
+          )}
         </button>
       </div>
     </section>
