@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { addTodoAction } from '@/app/lib/actions/todo';
-import { FaPlus } from 'react-icons/fa6';
 import styles from './AddTodoInput.module.scss';
+import { Plus } from '@phosphor-icons/react';
 
 export default function AddTodoInput() {
   const [inputTitle, setInputTitle] = useState<string>('');
@@ -37,7 +37,7 @@ export default function AddTodoInput() {
         onKeyDown={handleKeyDown}
       />
       <button type="button" className={styles['add-btn']} onClick={handleAdd}>
-        <FaPlus color="#120030" size={'1.5rem'} aria-hidden />
+        <Plus color="#120030" size={'2rem'} aria-hidden weight="bold" />
         <span>Add</span>
       </button>
     </div>

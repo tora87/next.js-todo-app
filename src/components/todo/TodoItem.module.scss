@@ -61,6 +61,7 @@ $shadow-light: color.scale($delete-base, $lightness: 50%, $saturation: -70%);
 
   .todo-title {
     flex: 1;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: inherit;
@@ -100,24 +101,38 @@ $shadow-light: color.scale($delete-base, $lightness: 50%, $saturation: -70%);
       width: 36px;
       height: 36px;
       cursor: pointer;
-      outline: none;
+      outline: invert;
+      background: var(--c-bg-main);
       border: none;
       border-radius: 50%;
+      box-shadow:
+        2px 2px 4px #a59fb0,
+        -2px -2px 4px #ffffff,
+        inset 2px 2px 4px transparent,
+        inset -2px -2px 4px transparent;
+
+      &:active {
+        box-shadow:
+          2px 2px 4px transparent,
+          -2px -2px 4px transparent,
+          inset 2px 2px 4px #a59fb0,
+          inset -2px -2px 4px #ffffff;
+      }
     }
 
-    .delete-btn {
-      background: linear-gradient(145deg, #e8d8d8, #e6a7a7);
-      box-shadow:
-        3px 3px 10px #b08080,
-        -3px -3px 10px #fff2f2;
-    }
+    // .delete-btn {
+    //   background: linear-gradient(145deg, #e8d8d8, #e6a7a7);
+    //   box-shadow:
+    //     3px 3px 10px #b08080,
+    //     -3px -3px 10px #fff2f2;
+    // }
 
-    .edit-btn {
-      background: linear-gradient(145deg, $bg1, $bg2);
-      box-shadow:
-        3px 3px 10px $shadow-dark,
-        -3px -3px 10px $shadow-light;
-    }
+    // .edit-btn {
+    //   background: linear-gradient(145deg, $bg1, $bg2);
+    //   box-shadow:
+    //     3px 3px 10px $shadow-dark,
+    //     -3px -3px 10px $shadow-light;
+    // }
   }
 }
 

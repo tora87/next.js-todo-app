@@ -2,10 +2,16 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Todo } from '@prisma/client';
-import { FaTrash, FaPen, FaCheck, FaBan } from 'react-icons/fa6';
 import styles from './TodoItem.module.scss';
 import { deleteTodoAction, updateTodoAction } from '@/app/lib/actions/todo';
 import Tooltip from '@/components/common/Tooltip';
+import {
+  ArrowBendDownLeft,
+  Check,
+  PencilSimple,
+  PencilSimpleLine,
+  Trash,
+} from '@phosphor-icons/react';
 
 type Props = {
   todo: Todo;
@@ -77,7 +83,7 @@ export default function TodoItem({ todo }: Props) {
 
   return (
     <li
-      className={`${styles['todo-item']} ${deleteClass()} ${isDone && styles['checked']}`}
+      className={`${styles['todo-item']} ${deleteClass()} ${isDone ? styles['checked'] : ''}`}
     >
       <div className="is-done-wrapper">
         <Tooltip text={isDone ? '完了' : '未完了'} position="bottom">
@@ -87,9 +93,10 @@ export default function TodoItem({ todo }: Props) {
             className={`${styles['is-done-box']} ${isDone && styles['checked']}`}
             onClick={handleUpdateIsDone}
           >
-            <FaCheck
+            <Check
               color={`${isDone ? '#afa7bf' : '#7134eb'}`}
-              size={'60%'}
+              size={'70%'}
+              weight="bold"
               aria-hidden
             />
           </button>
@@ -119,9 +126,9 @@ export default function TodoItem({ todo }: Props) {
             type="button"
           >
             {isEditing ? (
-              <FaCheck color="#a485db" size={'60%'} aria-hidden />
+              <PencilSimpleLine color="#59c868" size={'70%'} aria-hidden />
             ) : (
-              <FaPen color="#a485db" size={'60%'} aria-hidden />
+              <PencilSimple color="#a485db" size={'70%'} aria-hidden />
             )}
           </button>
         </Tooltip>
@@ -132,9 +139,9 @@ export default function TodoItem({ todo }: Props) {
             type="button"
           >
             {isEditing ? (
-              <FaBan color="#ff7b7b" size={'60%'} aria-hidden />
+              <ArrowBendDownLeft color="#ff7b7b" size={'70%'} aria-hidden />
             ) : (
-              <FaTrash color="#ff7b7b" size={'60%'} aria-hidden />
+              <Trash color="#ff7b7b" size={'70%'} aria-hidden />
             )}
           </button>
         </Tooltip>
