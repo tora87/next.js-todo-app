@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Tooltip.module.scss';
 
 type TooltipProps = {
@@ -15,10 +15,19 @@ const Tooltip: React.FC<TooltipProps> = ({
   text,
   position = 'top',
 }) => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobile = /iphone|ipad|android/.test(userAgent);
+    setIsMobile(isMobile);
+  }, []);
+
   return (
     <div className={styles['tooltip-wrapper']}>
       {children}
-      <div className={`${styles['tooltip']} ${styles[position]}`}>{text}</div>
+      {!isMobile && (
+        <div className={`${styles['tooltip']} ${styles[position]}`}>{text}</div>
+      )}
     </div>
   );
 };
